@@ -17,7 +17,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'pangloss/vim-javascript'
 Plugin 'groenewege/vim-less'
 Plugin 'terryma/vim-multiple-cursors'
@@ -33,16 +32,16 @@ Plugin 'rodjek/vim-puppet'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'alfredodeza/pytest.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scwood/vim-hybrid'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax enable
-colorscheme solarized
-let g:solarized_termcolors=256
-set background=light
-
+set background=dark
+colorscheme hybrid
 
 set encoding=utf-8
 set fileencoding=utf-8
@@ -119,6 +118,8 @@ let g:colorizer_auto_filetype='css,html,vim'
 
 "Corrigindo backspace weird
 set backspace=indent,eol,start
+
+set cursorline
 
 "Ctrl-p nao pesquisando a desgraça toda
 
