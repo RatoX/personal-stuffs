@@ -30,6 +30,9 @@ Plugin 'chrisbra/Colorizer'
 Plugin 'wavded/vim-stylus'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'rodjek/vim-puppet'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'alfredodeza/pytest.vim'
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -122,3 +125,13 @@ set backspace=indent,eol,start
 set wildignore+=*/tmp/*,*/bower_components/*,*/node_modules/*,*.so,*.swp,*.zip,*/.git/*,*/coverage/*
 
 set nu
+
+set autoread
+
+noremap <silent><CR> :let @*=@%<CR>
+
+" Pytest
+nmap <silent><Leader>F <Esc>:Pytest file<CR>
+nmap <silent><Leader>f <Esc>:Pytest function<CR>
+nmap <silent><Leader>c <Esc>:Pytest class<CR>
+nmap <silent><Leader>m <Esc>:Pytest method<CR>
