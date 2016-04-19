@@ -32,8 +32,8 @@ Plugin 'rodjek/vim-puppet'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'alfredodeza/pytest.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scwood/vim-hybrid'
+Plugin 'rking/ag.vim'
+Plugin 'flazz/vim-colorschemes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -41,7 +41,7 @@ filetype plugin indent on    " required
 
 syntax enable
 set background=dark
-colorscheme hybrid
+colorscheme monokai
 
 set encoding=utf-8
 set fileencoding=utf-8
@@ -54,9 +54,10 @@ set noswf
 
 "salvo aqui quando eu tiro o focus dos arquivos
 au FocusLost * :wa
-
 set noshowmode
 
+" Ag
+let g:ag_working_path_mode="r"
 
 "barra de status
 set statusline=
