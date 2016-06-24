@@ -34,6 +34,8 @@ Plugin 'alfredodeza/pytest.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'moll/vim-node'
+Plugin 'chase/vim-ansible-yaml'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -76,7 +78,7 @@ set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
 set statusline+=%=              "left/right separator
 set statusline+=%*              "show the errors/warning in the status line
 set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set statusline+=%=              "left/right separator
 set statusline+=%h\ \           "help file flag
@@ -137,3 +139,16 @@ nmap <silent><Leader>F <Esc>:Pytest file<CR>
 nmap <silent><Leader>f <Esc>:Pytest function<CR>
 nmap <silent><Leader>c <Esc>:Pytest class<CR>
 nmap <silent><Leader>m <Esc>:Pytest method<CR>
+
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+function! MoveTo(count)
+  execute "silent m " . a:count
+endfunction
+
+command! -nargs=1 MoveTo call MoveTo(<args>)
+nmap M :<C-U>MoveTo(v:count)<CR>
