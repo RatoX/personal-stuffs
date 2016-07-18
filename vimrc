@@ -36,6 +36,7 @@ Plugin 'rking/ag.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'moll/vim-node'
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'roman/golden-ratio'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -146,9 +147,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-function! MoveTo(count)
-  execute "silent m " . a:count
-endfunction
-
-command! -nargs=1 MoveTo call MoveTo(<args>)
-nmap M :<C-U>MoveTo(v:count)<CR>
+"function! MoveTo(count)
+"  execute "silent m " . a:count
+"endfunction
+"
+"command! -nargs=1 MoveTo call MoveTo(<args>)
+"nmap M :<C-U>MoveTo(v:count)<CR>
+nmap <C-S> <Esc>:%s/\t/  /g<CR>
