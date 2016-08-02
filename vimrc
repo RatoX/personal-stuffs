@@ -14,7 +14,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
 Plugin 'pangloss/vim-javascript'
@@ -34,8 +34,7 @@ Plugin 'alfredodeza/pytest.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'moll/vim-node'
-Plugin 'chase/vim-ansible-yaml'
+Plugin 'motus/pig.vim'
 Plugin 'roman/golden-ratio'
 
 " All of your Plugins must be added before the following line
@@ -79,7 +78,7 @@ set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
 set statusline+=%=              "left/right separator
 set statusline+=%*              "show the errors/warning in the status line
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set statusline+=%=              "left/right separator
 set statusline+=%h\ \           "help file flag
@@ -122,6 +121,7 @@ let g:colorizer_auto_filetype='css,html,vim'
 
 "Corrigindo backspace weird
 set backspace=indent,eol,start
+set fileformat=unix
 
 set cursorline
 
@@ -142,15 +142,7 @@ nmap <silent><Leader>c <Esc>:Pytest class<CR>
 nmap <silent><Leader>m <Esc>:Pytest method<CR>
 
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" Eita deixando o Multiplo cursor bom
+let g:multi_cursor_exit_from_insert_mode=0
 
-"function! MoveTo(count)
-"  execute "silent m " . a:count
-"endfunction
-"
-"command! -nargs=1 MoveTo call MoveTo(<args>)
-"nmap M :<C-U>MoveTo(v:count)<CR>
-nmap <C-S> <Esc>:%s/\t/  /g<CR>
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
